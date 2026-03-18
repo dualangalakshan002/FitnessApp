@@ -3,11 +3,11 @@ import Cursor    from "./components/Cursor";
 import Navbar    from "./components/Navbar";
 import Hero      from "./components/Hero";
 import Marquee   from "./components/Marquee";
-import About     from "./components/About";
-import Services  from "./components/Services";
-import Plans     from "./components/Plans";
-import Trainers  from "./components/Trainers";
-import Contact   from "./components/Contact";
+import About     from "./section/About";
+import Services  from "./section/Services";
+import Plans     from "./section/Plans";
+import Trainers  from "./section/Trainers";
+import Contact   from "./section/Contact";
 import Footer    from "./components/Footer";
 
 export default function App() {
