@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import LogoBadge from "./LogoBadge";
+import logo from "../assets/logo.png";
 
 const links = [
   { label: "About",    href: "#about" },
@@ -49,7 +49,11 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-3 no-underline">
-          <LogoBadge size={50} />
+          <img
+            src={logo}
+            alt="FitnessApp logo"
+            className="w-10 h-10 rounded-full border-2 border-gold object-cover"
+          />
           <div className="flex flex-col leading-none">
             <span
               style={{

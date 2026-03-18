@@ -1,3 +1,5 @@
+import logo from "../assets/logo.png";
+
 export default function Hero() {
   return (
     <section
@@ -24,24 +26,12 @@ export default function Hero() {
       />
 
       {/* Watermark */}
-      <svg
-        className="absolute right-[5%] top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden md:block"
-        style={{ width: "clamp(260px,34vw,500px)" }}
-        viewBox="0 0 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="100" cy="100" r="95" fill="none" stroke="#C99A0F" strokeWidth="3" />
-        <circle cx="100" cy="100" r="79" fill="none" stroke="#C99A0F" strokeWidth="1" strokeDasharray="4 4" />
-        <text x="100" y="50" textAnchor="middle" fontSize="14" fill="#C99A0F" fontFamily="serif">★ ★ ★ ★ ★</text>
-        <rect x="14"  y="94" width="48" height="9" rx="2" fill="#C99A0F" />
-        <rect x="138" y="94" width="48" height="9" rx="2" fill="#C99A0F" />
-        <ellipse cx="100" cy="90" rx="28" ry="32" fill="#C99A0F" opacity=".5" />
-        <ellipse cx="100" cy="65" rx="18" ry="20" fill="#C99A0F" opacity=".7" />
-        <text x="100" y="152" textAnchor="middle" fontFamily="Arial Black,sans-serif" fontSize="20" fontWeight="900" fill="#C99A0F" letterSpacing="3">FITNESS</text>
-        <text x="100" y="167" textAnchor="middle" fontFamily="Arial,sans-serif" fontSize="9" fill="#C99A0F" letterSpacing="3">SPORTS CENTER</text>
-        <path d="M30 135 Q100 148 170 135 L173 156 Q100 170 27 156 Z" fill="#C99A0F" opacity=".4" />
-        <text x="100" y="152" textAnchor="middle" fontFamily="Arial Black,sans-serif" fontSize="9" fill="#050505" opacity=".4">EST. 2023</text>
-      </svg>
+      <img
+        src={logo}
+        alt=""
+        className="absolute right-[15%] top-1/2 -translate-y-1/2 opacity-10 pointer-events-none hidden md:block"
+        style={{ width: "clamp(400px,34vw,500px)" }}
+      />
 
       {/* Scroll indicator */}
       <div className="absolute left-[60px] bottom-[88px] z-10 hidden md:flex flex-col items-center gap-2">

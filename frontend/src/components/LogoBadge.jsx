@@ -6,7 +6,7 @@ export default function LogoBadge({ size = 50 }) {
       width={size}
       height={size}
       viewBox="0 0 100 100"
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns="C:\Users\Dulanga\Documents\GitHub\FitnessApp\frontend\src\assets\logo.png"
     >
       <circle cx="50" cy="50" r="48" fill="#2A2208" stroke="#C99A0F" strokeWidth="2.5" />
       <circle cx="50" cy="50" r="40" fill="none" stroke="#C99A0F" strokeWidth="1" strokeDasharray="3 3" />
