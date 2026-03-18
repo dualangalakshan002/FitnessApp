@@ -1,0 +1,375 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ── CSS Variables ── */
+:root {
+  --gold: #c99a0f;
+  --gold-lt: #e0ae18;
+  --gold-dim: #9a760a;
+  --gold-glow: rgba(201, 154, 15, 0.18);
+  --brown: #2a2208;
+  --black: #050505;
+  --charcoal: #111;
+  --mid: #1e1e1e;
+  --border: #2c2c2c;
+  --border-g: rgba(201, 154, 15, 0.22);
+  --white: #f2efe8;
+  --muted: #a09880;
+}
+
+/* ── Base Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: "Barlow", sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* ── Custom Cursor ── */
+.cursor {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s, width 0.2s, height 0.2s;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(201, 154, 15, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease;
+}
+
+.cursor.cursor-hover {
+  transform: translate(-50%, -50%) scale(2.2);
+}
+
+.cursor-ring.cursor-hover {
+  transform: translate(-50%, -50%) scale(1.6);
+}
+
+/* ── Clip Paths ── */
+.clip-skew {
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+.clip-skew-sm {
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.clip-skew-xs {
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+}
+.clip-icon {
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+/* ── Marquee ── */
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 24s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Scroll Line ── */
+.scroll-line {
+  width: 1px;
+  height: 54px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  animation: scrollLine 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.25; transform: scaleY(0.7); }
+  50%       { opacity: 1;    transform: scaleY(1); }
+}
+
+/* ── Reveal Animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-l {
+  opacity: 0;
+  transform: translateX(-26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-l.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-r {
+  opacity: 0;
+  transform: translateX(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-r.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Hero Animations ── */
+.hero-tag-anim  { animation: fadeUp 0.8s 0.3s both; }
+.hero-title-anim{ animation: fadeUp 0.9s 0.5s both; }
+.hero-sub-anim  { animation: fadeUp 0.8s 0.7s both; }
+.hero-acts-anim { animation: fadeUp 0.8s 0.85s both; }
+.hero-stats-anim{ animation: fadeUp 0.8s 1.0s both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Hero Grid ── */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201, 154, 15, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 154, 15, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 80% at 60% 50%, black 25%, transparent 80%);
+}
+
+/* ── Nav underline ── */
+.nav-link-item {
+  position: relative;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-link-item::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transition: width 0.25s;
+}
+.nav-link-item:hover {
+  color: var(--white);
+}
+.nav-link-item:hover::after {
+  width: 100%;
+}
+
+/* ── Service Card hover ── */
+.svc-card {
+  transition: border-color 0.3s, background 0.3s;
+  cursor: none;
+}
+.svc-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-glow), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.svc-card:hover {
+  border-color: var(--gold);
+  background: var(--mid);
+}
+.svc-card:hover::before {
+  opacity: 1;
+}
+.svc-card:hover .svc-icon-inner {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.svc-card:hover .svc-num {
+  color: rgba(201, 154, 15, 0.1);
+}
+
+/* ── About card hover ── */
+.about-card:hover {
+  transform: translateX(8px);
+  box-shadow: -4px 0 24px var(--gold-glow);
+}
+
+/* ── Form inputs ── */
+.form-input,
+.form-ta {
+  background: rgba(5, 5, 5, 0.7);
+  border: 1px solid var(--border);
+  color: var(--white);
+  font-family: "Barlow", sans-serif;
+  font-size: 0.91rem;
+  padding: 12px 16px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  outline: none;
+  resize: none;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  width: 100%;
+}
+.form-input::placeholder,
+.form-ta::placeholder {
+  color: rgba(160, 152, 128, 0.35);
+}
+.form-input:focus,
+.form-ta:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-glow);
+}
+.form-input.err,
+.form-ta.err {
+  border-color: #c94343;
+}
+.form-ta {
+  min-height: 128px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  #trainers .grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  section {
+    padding: 78px 26px !important;
+  }
+  #about .grid,
+  #contact .grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  #services .grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  #plans .grid {
+    grid-template-columns: 1fr !important;
+    max-width: 370px !important;
+  }
+  .plan-card.featured {
+    transform: none !important;
+  }
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+  footer {
+    padding: 30px 26px !important;
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  .footer-links {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #services .grid {
+    grid-template-columns: 1fr !important;
+  }
+  #trainers .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Mobile menu links ── */
+.mobile-link {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.8rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mobile-link:hover {
+  color: var(--gold);
+}
+
+/* ── Trainer card ── */
+.trainer-card {
+  background: var(--charcoal);
+  overflow: hidden;
+  cursor: none;
+}
+
+/* ── Plan card ── */
+.plan-card {
+  background: rgba(5, 5, 5, 0.6);
+  border: 1px solid rgba(201, 154, 15, 0.14);
+  padding: 44px 32px;
+  position: relative;
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s, border-color 0.3s;
+}
+.plan-card.featured {
+  background: rgba(5, 5, 5, 0.88);
+  border-color: var(--gold);
+  transform: scaleY(1.04);
+}
+.plan-card:not(.featured):hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 154, 15, 0.38);
+}
+
+/* ── Footer links ── */
+.footer-link {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: var(--gold);
+}
