@@ -67,10 +67,10 @@ export default function Hero() {
             color: "var(--gold)",
           }}
         >
-          <span
+          {/* <span
             style={{ width: 28, height: 1.5, background: "var(--gold)", display: "inline-block" }}
           />
-          Est. 2023 &nbsp;·&nbsp; Fitness Sports Center
+          Est. 2023 &nbsp;·&nbsp; Fitness Sports Center */}
         </div>
 
         <h1

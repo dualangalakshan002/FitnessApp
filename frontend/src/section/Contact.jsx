@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
 
 const contactInfo = [
-  { icon: "📍", label: "Location", value: "14 Steel Row, The Peak District, UK" },
-  { icon: "📞", label: "Phone",    value: "+44 (0) 1234 567 890" },
+  { icon: "📍", label: "Location", value: "No. 45, Temple Road, Colombo 1, Sri Lanka" },
+  { icon: "📞", label: "Phone",    value: "+94 (0) 1234 567 890" },
   { icon: "✉️", label: "Email",    value: "hello@fitnesssportscenter.com" },
   { icon: "🕐", label: "Hours",    value: "Open 24 / 7 — 365 Days a Year" },
 ];
